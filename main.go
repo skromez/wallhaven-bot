@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	tg "github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
@@ -18,6 +19,7 @@ type Image struct {
 }
 
 func main() {
+	err := godotenv.Load()
 	bot, err := tg.NewBotAPI(os.Getenv("API_KEY"))
 	if err != nil {
 		log.Fatal(err)
