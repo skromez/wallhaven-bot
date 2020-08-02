@@ -6,6 +6,7 @@ import (
 	tg "github.com/go-telegram-bot-api/telegram-bot-api"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Image struct {
@@ -17,7 +18,7 @@ type Image struct {
 }
 
 func main() {
-	bot, err := tg.NewBotAPI("1109328542:AAFYNrVlLvXDda8Nnpi6hh2_UEPyY7H9JMA")
+	bot, err := tg.NewBotAPI(os.Getenv("API_KEY"))
 	if err != nil {
 		log.Fatal(err)
 	}
